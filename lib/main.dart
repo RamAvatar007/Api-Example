@@ -3,9 +3,11 @@ import 'package:provider/provider.dart';
 import 'package:provider_api/screens/example1.dart';
 import 'package:provider_api/screens/example2.dart';
 import 'package:provider_api/screens/get_api_list.dart';
+import 'package:provider_api/screens/product_list_screen.dart';
 
 import 'controller/GetApiController.dart';
 import 'controller/fake_api_controller.dart';
+import 'controller/product_controller.dart';
 
 void main() {
   runApp(
@@ -22,13 +24,14 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => GetApiController()),
         ChangeNotifierProvider(create: (_) => FakeApiController()),
+        ChangeNotifierProvider(create: (_) => ProductController()),
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         ),
-        home: Example1(),
+        home: ProductListScreen(),
       ),
     );
   }
