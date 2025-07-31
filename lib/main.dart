@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:provider_api/screens/example1.dart';
-import 'package:provider_api/screens/example2.dart';
-import 'package:provider_api/screens/get_api_list.dart';
-import 'package:provider_api/screens/product_list_screen.dart';
-
+import 'package:provider_api/screens/post_api/controller/user_controller.dart';
+import 'package:provider_api/screens/post_api/screen/create_user.dart';
 import 'controller/GetApiController.dart';
 import 'controller/fake_api_controller.dart';
 import 'controller/product_controller.dart';
@@ -25,13 +22,15 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => GetApiController()),
         ChangeNotifierProvider(create: (_) => FakeApiController()),
         ChangeNotifierProvider(create: (_) => ProductController()),
+        ChangeNotifierProvider(create: (_) => UserController()),
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
+        debugShowCheckedModeBanner: false,
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         ),
-        home: ProductListScreen(),
+        home: CreateUserScreen(),
       ),
     );
   }
